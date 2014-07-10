@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140709135543) do
+ActiveRecord::Schema.define(version: 20140710163647) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -27,6 +27,11 @@ ActiveRecord::Schema.define(version: 20140709135543) do
     t.datetime "updated_at"
   end
 
+  create_table "post_categories", force: true do |t|
+    t.integer "category_id"
+    t.integer "post_id"
+  end
+
   create_table "posts", force: true do |t|
     t.string   "title"
     t.string   "url"
@@ -36,16 +41,16 @@ ActiveRecord::Schema.define(version: 20140709135543) do
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
-    t.string   "username"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "sqlite_sp_functions", id: false, force: true do |t|
     t.text "name"
     t.text "text"
   end
+
+# Could not dump table "sqlite_stat1" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
+
+# Could not dump table "sqlite_stat4" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "sqlite_vs_links_names", id: false, force: true do |t|
     t.text "name"
@@ -57,6 +62,12 @@ ActiveRecord::Schema.define(version: 20140709135543) do
     t.text "parentName"
     t.text "propertyName"
     t.text "propertyValue"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "username"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
