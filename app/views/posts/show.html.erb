@@ -1,10 +1,13 @@
-<p>
-  <%= render @post.categories %>
-</p>
+<div class='pull-right'>
+  <%= link_to('edit this post', edit_post_path(@post), class: 'btn btn-warning btn-small') %>
+  <%= link_to('delete this post', post_path(@post), class: 'btn btn-danger btn-small', method: :delete, data: {confirm: 'Are you sure?'}) %>
+</div>
 
 <%= render 'shared/content_title', title: @post.title %>
+
+<p><%= render @post.categories %></p>
 
 <p><%= @post.description %></p>
 <hr/>
 
-<p><%= link_to("go back to all posts", posts_path) %></p>
+<p><%= link_to("show All Posts!", posts_path) %></p>
