@@ -1,0 +1,20 @@
+<% if @category.errors.any? %>
+  <div class='row alert alert-error'>
+    <p>Please fix listed errors:</p>
+    <ul>
+      <% @category.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class='well'>
+  <%= form_for @category do |f| %>
+    <div class='control-group'>
+      <%= f.label :name %>
+      <%= f.text_field :name %>      
+    </div>
+    <%= f.submit(@category.new_record? ? "Create Category" : "Update Category", class: 'btn btn-primary') %>
+  <% end %>
+</div>

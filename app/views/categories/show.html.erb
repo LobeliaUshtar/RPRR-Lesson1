@@ -1,0 +1,11 @@
+<div class='pull-right'>
+  <%= link_to('edit this category', edit_category_path(@category), class: 'btn btn-warning btn-small') %>
+  <%= link_to('delete this category', category_path(@category), class: 'btn btn-danger btn-small', method: :delete, data: {confirm: 'Are you sure?'}) %>
+</div>
+
+<% header = link_to("All Posts", posts_path) + " &raquo; #{@category.name}".html_safe %>
+<%= render 'shared/content_title', title: header  %>
+
+<% @category.posts.each do |post| %>
+  <%= render 'posts/post', post: post %>
+<% end %>
