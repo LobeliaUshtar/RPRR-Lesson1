@@ -1,13 +1,4 @@
-<% if @category.errors.any? %>
-  <div class='row alert alert-error'>
-    <p>Please fix listed errors:</p>
-    <ul>
-      <% @category.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+<%= render 'shared/error', item: @category %>
 
 <div class='well'>
   <%= form_for @category do |f| %>

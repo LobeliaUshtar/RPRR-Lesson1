@@ -1,7 +1,4 @@
-<div class='pull-right'>
-  <%= link_to('edit this post', edit_post_path(@post), class: 'btn btn-warning btn-small') %>
-  <%= link_to('delete this post', post_path(@post), class: 'btn btn-danger btn-small', method: :delete, data: {confirm: 'Are you sure?'}) %>
-</div>
+<%= render 'shared/mod_buttons', item: @post, x: "post" %>
 
 <%= render 'shared/content_title', title: @post.title %>
 
