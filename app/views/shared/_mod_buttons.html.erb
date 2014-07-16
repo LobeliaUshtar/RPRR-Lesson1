@@ -1,15 +1,4 @@
-<!-- these are the buttons trying to get working as the partial
 <div class='pull-right'>
-  <%= link_to("Edit", edit_post_path(item), class: 'btn btn-warning btn-small') %>
-  <%= link_to("Delete", post_path(item), class: 'btn btn-danger btn-small', method: :delete, data: {confirm: 'Are you sure?'}) %>
-</div>
-
-<div class='pull-right'>
-  <%= link_to('edit this category', edit_category_path(@category), class: 'btn btn-warning btn-small') %>
-  <%= link_to('delete this category', category_path(@category), class: 'btn btn-danger btn-small', method: :delete, data: {confirm: 'Are you sure?'}) %>
-</div>
- -->
-<div class='pull-right'>
-  <%= link_to('edit this category', edit_x_path(item), class: 'btn btn-warning btn-small') %>
-  <%= link_to('delete this category', x_path(item), class: 'btn btn-danger btn-small', method: :delete, data: {confirm: 'Are you sure?'}) %>
+  <%= link_to('edit', [:edit, item], class: 'btn btn-warning btn-small') %>
+  <%= link_to('delete', [item], class: 'btn btn-danger btn-small', method: :delete, data: {confirm: 'Are you sure?'}) %>
 </div>
