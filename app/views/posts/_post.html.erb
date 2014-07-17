@@ -2,11 +2,14 @@
   <div class='span8 well'>
     <%= render post.categories %>
     <h4><%= link_to(post.title, post_path(post)) %></h4>
+    <div class='pull-right'>
+      <%= link_to('wanna go see?', fix_url(post.url), class: 'btn btn-info btn-small') %>
+    </div>
     <p><%= post.description %></p>
     <p>
       <small>
         <span class='quiet'>by </span><%= post.creator.username %>
-        <span class='quiet'> at </span><%= post.created_at %>
+        <span class='quiet'> on <%= display_datetime(post.created_at) %></span>
       </small>
     </p>
     <small>

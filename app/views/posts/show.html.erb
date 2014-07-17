@@ -24,7 +24,7 @@
     <br/>
       <small>
         <span class='quiet'>by </span><%= comment.creator.username %>
-        <span class='quiet'> at </span><%= comment.created_at %>
+        <span class='quiet'> on <%= display_datetime(comment.created_at) %></span>
       </small>
   </div>
 <% end %>
