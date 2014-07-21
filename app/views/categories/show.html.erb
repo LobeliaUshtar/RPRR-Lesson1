@@ -1,4 +1,6 @@
-<%= render 'shared/mod_buttons', item: @category %>
+<% if logged_in? %>
+  <%= render 'shared/mod_buttons', item: @category %>
+<% end %>
 
 <% header = link_to("All Posts", posts_path) + " &raquo; #{@category.name}".html_safe %>
 <%= render 'shared/content_title', title: header  %>

@@ -1,4 +1,6 @@
-<%= render 'shared/mod_buttons', item: @post %>
+<% if logged_in? %>
+  <%= render 'shared/mod_buttons', item: @post %>
+<% end %>
 
 <%= render @post.categories %>
 
@@ -7,13 +9,15 @@
 <p><%= @post.description %></p>
 <hr/>
 
-<%= form_for [@post, @comment] do |f| %>
-  <%= render 'shared/error', item: @comment %>
-  <div class='control-group'>
-      <%= f.label :body, 'Leave a comment' %>
-      <%= f.text_area :body, row: 3, class: 'span4' %>
-  </div>
-  <%= f.submit "Create Comment", class: "btn btn-primary" %>
+<% if logged_in? %>
+  <%= form_for [@post, @comment] do |f| %>
+    <%= render 'shared/error', item: @comment %>
+    <div class='control-group'>
+        <%= f.label :body, 'Leave a comment' %>
+        <%= f.text_area :body, row: 3, class: 'span4' %>
+    </div>
+    <%= f.submit "Create Comment", class: "btn btn-primary" %>
+  <% end %>
 <% end %>
 
 <h5>This Post's Comments:</h5>
@@ -23,7 +27,7 @@
     <em>"<%= comment.body %>"</em>
     <br/>
       <small>
-        <span class='quiet'>by </span><%= comment.creator.username %>
+        <span class='quiet'>by </span><%= link_to(comment.creator.username, '' ) %>
         <span class='quiet'> on <%= display_datetime(comment.created_at) %></span>
       </small>
   </div>

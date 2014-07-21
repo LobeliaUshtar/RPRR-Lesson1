@@ -8,6 +8,8 @@
 
 User.create!([
   {
-    username: "Gabby"
+    username: "Gabby",
+    password: "gabby",
+    password_confirmation: "gabby"
   }
 ])
