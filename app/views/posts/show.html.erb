@@ -23,12 +23,5 @@
 <h5>This Post's Comments:</h5>
 
 <% @post.comments.each do |comment| %>
-  <div class="well span8">
-    <em>"<%= comment.body %>"</em>
-    <br/>
-      <small>
-        <span class='quiet'>by </span><%= link_to(comment.creator.username, '' ) %>
-        <span class='quiet'> on <%= display_datetime(comment.created_at) %></span>
-      </small>
-  </div>
+  <%= render 'comments/comment', comment: comment %>
 <% end %>
