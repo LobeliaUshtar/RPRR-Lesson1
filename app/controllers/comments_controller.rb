@@ -10,8 +10,19 @@ class CommentsController < ApplicationController
       flash[:notice] = "New comment was added."
       redirect_to post_path(@post)
     else
-      
       render 'posts/show'
     end
+  end
+
+  def vote
+    comment = Comment.find(params[:id])
+    vote = Vote.create(voteable: comment, creator: current_user, vote: params[:vote])
+
+    if vote.valid?
+      flash[:notice] = "Successfully voted..."
+    else
+      flash[:error] = "You can only vote on a comment once."
+    end
+      redirect_to :back  
   end
 end
