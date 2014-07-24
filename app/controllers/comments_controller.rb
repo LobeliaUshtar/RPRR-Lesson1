@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     # @comment = @post.comments.build(params.require(:comment).require(:body))
-    @comment = @post.comments.build(params.require(:comment).permit(:body))
+    @comment = @post.comments.build(comment_params)
     @comment.creator = current_user
     
     if @comment.save
@@ -26,4 +26,10 @@ class CommentsController < ApplicationController
     end
       redirect_to :back  
   end
+
+  private
+    def comment_params
+      params.require(:comment).permit(:body)
+    end
+  # private end
 end

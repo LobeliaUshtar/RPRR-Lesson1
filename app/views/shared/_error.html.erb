@@ -1,6 +1,6 @@
 <% if item.errors.any? %>
   <div class='row alert alert-error'>
-    <p>Please fix listed errors:</p>
+    <p>Please fix the listed errors:</p>
     <ul>
       <% item.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -8,3 +8,4 @@
     </ul>
   </div>
 <% end %>
+
