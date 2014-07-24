@@ -1,4 +1,9 @@
 <div class='pull-right'>
-  <%= link_to('edit', [:edit, item], class: 'btn btn-warning btn-small') %><!-- [:edit, item] renders edit_post_path(@post) when posts/show.html.erb calls it for instance -->
-  <%= link_to('delete', [item], class: 'btn btn-danger btn-small', method: :delete, data: {confirm: 'Are you sure?'}) %><!-- [item] renders post_path(@post) when posts/show.html.erb calls it for instance -->
+  <%= link_to('edit', [:edit, item], class: 'btn btn-warning btn-small') %>
+  <%= link_to('delete', [item], class: 'btn btn-danger btn-small', method: :delete, data: {confirm: 'Are you sure?'}) %>
 </div>
+
+<!--
+line 2 - [:edit, item] renders edit_post_path(@post) when posts/show.html.erb calls it for instance
+line 3 - [item] renders post_path(@post) when posts/show.html.erb calls it for instance
+-->
