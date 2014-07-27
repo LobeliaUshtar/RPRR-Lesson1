@@ -5,12 +5,12 @@
 <% else %>
 
   <div class='row'>
-    <div class='span0 well'>
-      <%= link_to(vote_post_comment_path(comment.post, comment, vote: true), method: 'post') do %>
+    <div class='span0 well text-center'>
+      <%= link_to(vote_post_comment_path(comment.post, comment, vote: true), method: 'post', remote: true) do %>
         <i class='icon-arrow-up'></i>
       <% end %>
-      <%= comment.total_votes %> votes
-      <%= link_to(vote_post_comment_path(comment.post, comment, vote: false), method: 'post') do %>
+      <div><span id='comment_<%= comment.id %>_votes'><%= comment.total_votes %> votes</span></div>
+      <%= link_to(vote_post_comment_path(comment.post, comment, vote: false), method: 'post', remote: true) do %>
         <i class='icon-arrow-down'></i>
       <% end %>
     </div>
