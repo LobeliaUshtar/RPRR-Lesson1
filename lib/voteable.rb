@@ -1,4 +1,5 @@
-# Using Concerns
+# Using Concerns - has been made into 'voteable_lobelia.gem' on RubyGem.org
+=begin
 module Voteable
   extend ActiveSupport::Concern
 
@@ -18,7 +19,7 @@ module Voteable
     self.votes.where(vote: false).size
   end
 end
-
+=end
 
 # Using normal metaprogramming
 =begin
