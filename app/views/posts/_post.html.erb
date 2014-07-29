@@ -3,7 +3,7 @@
     <%= link_to(vote_post_path(post, vote: true), method: 'post', remote: true) do %>
       <i class='icon-arrow-up'></i>
     <% end %>
-    <div><span id='post_<%= post.id %>_votes'><%= post.total_votes %> votes</span></div>
+    <div><span id='post_<%= post.slug %>_votes'><%= post.total_votes %> votes</span></div>
     <%= link_to(vote_post_path(post, vote: false), method: 'post', remote: true) do %>
       <i class='icon-arrow-down'></i>
     <% end %>
