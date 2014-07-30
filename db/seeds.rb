@@ -8,8 +8,9 @@
 
 User.create!([
   {
-    username: "Gabby",
+    username: "gabby",
     password: "gabby",
     password_confirmation: "gabby"
+    role: 'admin'
   }
 ])
