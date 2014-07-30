@@ -10,7 +10,7 @@ User.create!([
   {
     username: "gabby",
     password: "gabby",
-    password_confirmation: "gabby"
-    role: 'admin'
+    password_confirmation: "gabby",
+    role: "admin"
   }
 ])
