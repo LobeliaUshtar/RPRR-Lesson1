@@ -23,28 +23,21 @@ class UsersController < ApplicationController
       render :new
     end
   end
-  
+
   def edit; end
 
   def update
     if @user.update(user_params)
-      flash[:notice] = "This user was updated."
+      flash[:notice] = "Your profile was updated."
       redirect_to user_path(@user)
     else
       render :edit
     end
   end
 
-  def destroy
-    @user.destroy
-    session[:user_id] = nil
-    redirect_to root_path
-    flash[:notice] = "Successfully deleted user..."
-  end
-
   private
     def user_params
-      params.require(:user).permit!
+      params.require(:user).permit(:username, :password, :time_zone)
     end
 
     def set_user
@@ -52,11 +45,9 @@ class UsersController < ApplicationController
     end
 
     def require_same_user
-      if logged_in? and (current_user == @user || current_user.admin?)
-        render :edit
-      else
-        flash[:error] = "You're not allowed to do that."
-        redirect_to user_path(@user)
+      unless current_user == @user || current_user.admin?
+        flash[:error] = "This is not allowed."
+        redirect_to root_path
       end
     end
   # private end

@@ -8,6 +8,7 @@
         <%= render 'shared/mod_buttons', item: user %>
       <% end %>
       <h4><%= link_to(user.username, user_path(user)) %></h4>
+      <p><%= user.time_zone %></p>
     </div>
   </div>
 

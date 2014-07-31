@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140730191522) do
+ActiveRecord::Schema.define(version: 20140731202455) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -43,6 +43,29 @@ ActiveRecord::Schema.define(version: 20140730191522) do
     t.string   "slug"
   end
 
+  create_table "sqlite_sp_functions", id: false, force: true do |t|
+    t.text "name"
+    t.text "text"
+  end
+
+# Could not dump table "sqlite_stat1" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
+
+# Could not dump table "sqlite_stat4" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
+
+  create_table "sqlite_vs_links_names", id: false, force: true do |t|
+    t.text "name"
+    t.text "alias"
+  end
+
+  create_table "sqlite_vs_properties", id: false, force: true do |t|
+    t.text "parentType"
+    t.text "parentName"
+    t.text "propertyName"
+    t.text "propertyValue"
+  end
+
   create_table "users", force: true do |t|
     t.string   "username"
     t.datetime "created_at"
@@ -50,6 +73,7 @@ ActiveRecord::Schema.define(version: 20140730191522) do
     t.string   "password_digest"
     t.string   "slug"
     t.string   "role"
+    t.string   "time_zone"
   end
 
   create_table "votes", force: true do |t|

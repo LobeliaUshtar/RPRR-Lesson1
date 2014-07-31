@@ -21,11 +21,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_admin
-    access_denied unless logged_in? and current_user.admin?
-  end
-
-  def require_moderator
-    access_denied unless logged_in? and current_user.moderator?
+    access_denied unless logged_in? && current_user.admin?
   end
 
   def access_denied
