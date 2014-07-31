@@ -1,4 +1,4 @@
-<% if logged_in? %>
+<% if logged_in? and (current_user == current_user.admin?) %>
   <%= render 'shared/mod_buttons', item: @category %>
 <% end %>
 

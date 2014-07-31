@@ -6,9 +6,7 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def show
-
-  end
+  def show; end
 
   def new
     @user = User.new
@@ -40,7 +38,8 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     session[:user_id] = nil
-    redirect_to users_path
+    redirect_to root_path
+    flash[:notice] = "Successfully deleted user..."
   end
 
   private
@@ -53,11 +52,11 @@ class UsersController < ApplicationController
     end
 
     def require_same_user
-      if current_user != @user
+      if logged_in? and (current_user == @user || current_user.admin?)
+        render :edit
+      else
         flash[:error] = "You're not allowed to do that."
         redirect_to user_path(@user)
-      else
-        render :edit
       end
     end
   # private end

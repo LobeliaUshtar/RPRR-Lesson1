@@ -4,6 +4,9 @@
 
   <div class='row'>
     <div class='span8 well'>
+      <% if logged_in? and current_user.admin? %>
+        <%= render 'shared/mod_buttons', item: user %>
+      <% end %>
       <h4><%= link_to(user.username, user_path(user)) %></h4>
     </div>
   </div>

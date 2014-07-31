@@ -17,11 +17,19 @@
       <% if logged_in? and current_user.admin? %>
         <li class='divider'></li>
         <li>
+          <%= link_to(categories_path) do %>
+            <i class='icon-folder-open'></i>
+            All Categories
+          <% end %>
+        </li>
+        <li class='divider'></li>
+        <li>
           <%= link_to(new_category_path) do %>
             <i class='icon-plus'></i>
             New Category
           <% end %>
         </li>
+
       <% end %>
     </ul>
   </div>
@@ -52,9 +60,17 @@
             Log out
           <% end %>
         </li>
+        <% if current_user.admin? %>
+          <li class='divider'></li>
+          <li>
+            <%= link_to(users_path) do %>
+              <i class='icon-folder-open'></i>
+              All Users
+            <% end %>
+          </li>
+        <% end %>
       </ul>
     </div>
-    
   <% else %>
     <%= link_to("Register", register_path , class: 'btn btn-primary btn-small') %>
     <%= link_to('Log in', login_path, class: 'btn btn-info btn-small') %>

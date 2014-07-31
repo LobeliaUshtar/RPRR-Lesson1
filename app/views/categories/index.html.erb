@@ -3,6 +3,9 @@
 <% @categories.each do |category| %>
   <div class='row'>
     <div class='span8 well'>
+      <% if logged_in? and current_user.admin? %>
+        <%= render 'shared/mod_buttons', item: category %>
+      <% end %>
       <p><%= link_to(category.name, category_path(category)) %></p>
     </div>
   </div>

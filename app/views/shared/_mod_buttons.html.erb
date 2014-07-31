@@ -1,6 +1,6 @@
 <div class='pull-right'>
   <%= link_to('edit', [:edit, item], class: 'btn btn-warning btn-small') %>
-  <%= link_to('delete', [item], class: 'btn btn-danger btn-small', method: :delete, data: {confirm: 'Are you sure?'}) %>
+  <%= link_to('delete', [item], class: 'btn btn-danger btn-small', method: :delete, data: {confirm: 'Are you sure?'}, path: root_path) %>
 </div>
 
 <!--
