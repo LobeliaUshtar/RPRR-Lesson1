@@ -2,8 +2,15 @@ User.create!([
   {
     username: "gabby",
     password: "gabby",
+    password_confirmation: "gabby",
     role: "admin",
     time_zone: "Eastern Time (US & Canada)"
+  },
+  {
+    username: "tester",
+    password: "tester",
+    password_confirmation: "tester",
+    time_zone: "Pacific Time (US & Canada)"
   }
 ])
 

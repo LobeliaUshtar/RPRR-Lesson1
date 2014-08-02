@@ -1,3 +1,7 @@
+<% if logged_in? and (current_user == @user || current_user.admin?) %>
+  <%= render 'shared/mod_buttons', item: @user %>
+<% end %>
+
 <%= render 'shared/content_title', title: "Profile: #{@user.username}" %>
 
 <div class='well'>
